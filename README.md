@@ -6,4 +6,5 @@
 <h4>:construction: Proyecto en construcción :construction:</h4>
 
 ## :hammer:Funcionalidades del proyecto
-- `Funcionalidad `: La idea es desarrollar una calculadora cientifica completa en REACT.
+- `La idea es desarrollar una calculadora cientifica completa en REACT. `
+- `Proyecto Personal - Codo a Codo `
