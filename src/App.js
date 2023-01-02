@@ -1,8 +1,8 @@
 import "./App.css";
 
-import Boton from "./components/Buttons/Button";
-import Pantalla from "./components/Display/Display";
-import BotonClear from "./components/ClearButton/ClearButton";
+import Button from "./components/Buttons/Button";
+import Display from "./components/Display/Display";
+import ClearButton from "./components/ClearButton/ClearButton";
 
 import { useState } from "react";
 import { evaluate } from "mathjs";
@@ -21,7 +21,7 @@ function App() {
       input.charAt(input.length - 1) === val
     ) {
       setInput("");
-      alert("Ingresaste mas de un operador Matemtico");
+      alert("Ingresaste mas de un operador");
     }
   };
 
@@ -38,6 +38,40 @@ function App() {
       setInput(result);
     }
 
+    if (input.includes("cos")) {
+      let inputArr = input.split("cos");
+      let result =Math.cos(inputArr[0]) * inputArr[1];     
+      setInput(result);
+    }
+
+    if (input.includes("sin")) {
+      let inputArr = input.split("sin");
+      let result =Math.sin(inputArr[0]);     
+      setInput(result);
+    }
+
+    if (input.includes("√")) {
+      let inputArr = input.split("√");
+      let result = Math.sqrt(inputArr[0]);
+      setInput(result);
+    }
+
+    if (input.includes("√³")) {
+      let inputArr = input.split("√³");
+      let result = Math.ceil(Math.pow(inputArr[0], 1 / 3))
+      // let result = Math.sqrt(inputArr[0]);
+      setInput(result);
+    }
+
+    //Math.tan(degrees * Math.PI / 180); tan
+    if (input.includes("tan")) {
+      let inputArr = input.split("tan");
+      let result = Math.tan(inputArr[0]* Math.PI /180);     
+      setInput(result);
+    }
+
+   
+
     if (input) {
       setInput(evaluate(input));
       if (evaluate(input) === Infinity) {
@@ -53,44 +87,44 @@ function App() {
     <div className="App">
       <div className="logo-container"></div>
       <div className="calculator-container">
-        <Pantalla input={input} />
+        <Display input={input} />
         <div className="row">
-          <Boton click={addInput}>7</Boton>
-          <Boton click={addInput}>8</Boton>
-          <Boton click={addInput}>9</Boton>
-          <Boton click={addInput}>%</Boton>
-          <Boton click={addInput}>x²</Boton>
-          <Boton click={addInput}>x³</Boton>
+          <Button click={addInput}>7</Button>
+          <Button click={addInput}>8</Button>
+          <Button click={addInput}>9</Button>
+          <Button click={addInput}>%</Button>
+          <Button click={addInput}>x²</Button>
+          <Button click={addInput}>x³</Button>
         </div>
         <div className="row">
-          <Boton click={addInput}>4</Boton>
-          <Boton click={addInput}>5</Boton>
-          <Boton click={addInput}>6</Boton>
-          <Boton click={addInput}>/</Boton>
-          <Boton click={addInput}>cos</Boton>
-          <Boton click={addInput}>sin</Boton>
+          <Button click={addInput}>4</Button>
+          <Button click={addInput}>5</Button>
+          <Button click={addInput}>6</Button>
+          <Button click={addInput}>/</Button>
+          <Button click={addInput}>cos</Button>
+          <Button click={addInput}>sin</Button>
         </div>
         <div className="row">
-          <Boton click={addInput}>1</Boton>
-          <Boton click={addInput}>2</Boton>
-          <Boton click={addInput}>3</Boton>
+          <Button click={addInput}>1</Button>
+          <Button click={addInput}>2</Button>
+          <Button click={addInput}>3</Button>
 
-          <Boton click={addInput}>*</Boton>
-          <Boton click={addInput}>√</Boton>
-          <Boton click={addInput}>√³</Boton>
+          <Button click={addInput}>*</Button>
+          <Button click={addInput}>√</Button>
+          <Button click={addInput}>√³</Button>
         </div>
         <div className="row">
-          <Boton click={addInput}>0</Boton>
-          <Boton click={addInput}>.</Boton>
+          <Button click={addInput}>0</Button>
+          <Button click={addInput}>.</Button>
 
-          <Boton click={addInput}>+</Boton>
-          <Boton click={addInput}>-</Boton>
-          <Boton click={addInput}>tan</Boton>
+          <Button click={addInput}>+</Button>
+          <Button click={addInput}>-</Button>
+          <Button click={addInput}>tan</Button>
           <div className="row">
-            <BotonClear clickClear={() => setInput("")}>AC</BotonClear>
+            <ClearButton clickClear={() => setInput("")}>AC</ClearButton>
           </div>
         </div>
-        <Boton click={result}>=</Boton>
+        <Button click={result}>=</Button>
       </div>
     </div>
   );

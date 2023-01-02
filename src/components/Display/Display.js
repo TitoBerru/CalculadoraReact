@@ -1,10 +1,10 @@
 import React from 'react';
 import './Display.css';
 
-const Pantalla = ({ input }) => (
+const Display = ({ input }) => (
     <div className="input">
         {input}
     </div>
 );
 
-export default Pantalla;
+export default Display;

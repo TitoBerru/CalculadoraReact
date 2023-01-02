@@ -1,10 +1,10 @@
 import React from 'react';
 import './ClearButton.css';
 
-const BotonClear = (props) => (
+const ClearButton = (props) => (
     <div className="btn-clear" onClick={props.clickClear}>
         {props.children}
     </div>
 );
 
-export default BotonClear;
+export default ClearButton;

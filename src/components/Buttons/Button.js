@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.css';
 
-function Boton(props) {
+function Button(props) {
 
     const isOperator = value => {
         return isNaN(value) && (value !== '.') && (value !== '=');
@@ -16,4 +16,4 @@ function Boton(props) {
     );
 }
 
-export default Boton;
+export default Button;
